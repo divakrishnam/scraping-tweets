@@ -4,9 +4,11 @@ import pandas as pd
 import sys
 
 keyword = str(sys.argv[1])
-begin_date=dt.date(2020,1,1)
+begin_date=dt.date(2019,12,31)
+end_date=dt.date(2020,1,1)
 
-tweets = query_tweets(keyword, limit=10, begindate=begin_date, lang='en')[:10]
+print(f'Memulai pencarian tweet dengan keyword {keyword}...')
+tweets = query_tweets(keyword, limit=1, begindate=begin_date, enddate=end_date, lang='id')[:1]
 
 df=pd.DataFrame(t.__dict__ for t in tweets)
 
